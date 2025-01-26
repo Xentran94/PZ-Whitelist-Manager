@@ -26,7 +26,7 @@ Project Zomboid Whitelist Manager ist eine Webanwendung, die zur Verwaltung der 
    Öffnen Sie die Eingabeaufforderung (CMD) oder PowerShell und führen Sie die folgenden Befehle aus:
 
    ```sh
-   git clone <repository-url>
+   git clone https://github.com/Xentran94/PZ-Whitelist-Manager.git
    cd whitelist-panel
    ```
 
