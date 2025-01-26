@@ -63,8 +63,5 @@ Project Zomboid Whitelist Manager ist eine Webanwendung, die zur Verwaltung der 
 - Um einen bestehenden Eintrag zu aktualisieren, wählen Sie ihn aus der Tabelle aus, ändern Sie die Details und klicken Sie auf die Schaltfläche "Speichern".
 - Um einen Eintrag zu löschen, wählen Sie ihn aus der Tabelle aus und klicken Sie auf die Schaltfläche "Löschen".
 
-## Beiträge
-Beiträge sind willkommen! Bitte reichen Sie Pull-Requests ein oder öffnen Sie ein Issue für Verbesserungen oder Fehlerbehebungen.
-
 ## Lizenz
 Dieses Projekt ist unter der MIT-Lizenz lizenziert. Siehe die LICENSE-Datei für weitere Details.
