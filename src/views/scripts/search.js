@@ -53,7 +53,7 @@ function addRowToTable(entry) {
         <td contenteditable="false">${entry.steamid || ''}</td>
         <td>
             <div class="status-indicator-container">
-                <span class="status-indicator ${entry.banned ? 'red' : 'green'}"></span>
+                <i class="status-indicator ${entry.banned ? 'fas fa-ban red' : 'fas fa-check-circle green'}"></i>
             </div>
         </td>
         <td class="action-buttons">
