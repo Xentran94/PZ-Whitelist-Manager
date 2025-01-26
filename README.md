@@ -20,7 +20,6 @@ Project Zomboid Whitelist Manager ist eine Webanwendung, die zur Verwaltung der 
 ### Voraussetzungen
 - [Node.js](https://nodejs.org/) (Version 14 oder höher)
 - [Git](https://git-scm.com/)
-- [pkg](https://www.npmjs.com/package/pkg) (zum Erstellen der ausführbaren Datei)
 
 ### Schritte zur Installation
 1. **Repository klonen:**
