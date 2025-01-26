@@ -1,6 +1,7 @@
 import { updatePagination } from './pagination.js';
 import { handleUnauthorized } from './auth.js';
 import { showPopup } from './popup.js';
+import { handleSearchInput, searchEntries } from './search.js';
 
 export function fetchEntries() {
     const currentPage = parseInt(localStorage.getItem('currentPage')) || 1;
@@ -131,7 +132,7 @@ export function handleWhitelistFormSubmit(event) {
     });
 }
 
-function handleDelete(event) {
+export function handleDelete(event) {
     const id = event.target.getAttribute('data-id');
     if (confirm('Möchten Sie diesen Eintrag wirklich löschen?')) {
         fetch(`/whitelist/${id}`, {
@@ -143,7 +144,12 @@ function handleDelete(event) {
         .then(response => {
             if (response.ok) {
                 showPopup('Benutzer erfolgreich gelöscht', 'success');
-                fetchEntries(); // Tabelle aktualisieren
+                const searchTerm = document.getElementById('search').value.toLowerCase();
+                if (searchTerm) {
+                    searchEntries(searchTerm); // Suchergebnisse aktualisieren
+                } else {
+                    fetchEntries(); // Tabelle aktualisieren
+                }
             } else if (response.status === 401 || response.status === 403) {
                 handleUnauthorized();
             } else {
@@ -156,7 +162,7 @@ function handleDelete(event) {
     }
 }
 
-function handleBan(event) {
+export function handleBan(event) {
     const id = event.target.getAttribute('data-id');
     fetch(`/whitelist/${id}/banned`, {
         method: 'PUT',
@@ -169,7 +175,12 @@ function handleBan(event) {
     .then(response => {
         if (response.ok) {
             showPopup('Benutzer erfolgreich gesperrt', 'success');
-            fetchEntries(); // Tabelle aktualisieren
+            const searchTerm = document.getElementById('search').value.toLowerCase();
+            if (searchTerm) {
+                searchEntries(searchTerm); // Suchergebnisse aktualisieren
+            } else {
+                fetchEntries(); // Tabelle aktualisieren
+            }
         } else if (response.status === 401 || response.status === 403) {
             handleUnauthorized();
         } else {
@@ -181,7 +192,7 @@ function handleBan(event) {
     });
 }
 
-function handleUnban(event) {
+export function handleUnban(event) {
     const id = event.target.getAttribute('data-id');
     fetch(`/whitelist/${id}/banned`, {
         method: 'PUT',
@@ -194,7 +205,12 @@ function handleUnban(event) {
     .then(response => {
         if (response.ok) {
             showPopup('Benutzer erfolgreich entsperrt', 'success');
-            fetchEntries(); // Tabelle aktualisieren
+            const searchTerm = document.getElementById('search').value.toLowerCase();
+            if (searchTerm) {
+                searchEntries(searchTerm); // Suchergebnisse aktualisieren
+            } else {
+                fetchEntries(); // Tabelle aktualisieren
+            }
         } else if (response.status === 401 || response.status === 403) {
             handleUnauthorized();
         } else {
@@ -206,7 +222,7 @@ function handleUnban(event) {
     });
 }
 
-function handleEdit(event) {
+export function handleEdit(event) {
     const row = event.target.closest('tr');
     const table = row.closest('table');
     const rows = table.querySelectorAll('tr');

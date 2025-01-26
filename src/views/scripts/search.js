@@ -1,12 +1,14 @@
 import { updatePagination } from './pagination.js';
 import { handleUnauthorized } from './auth.js';
+import { showPopup } from './popup.js';
+import { handleDelete, handleBan, handleUnban, handleEdit } from './whitelist.js';
 
 export function handleSearchInput() {
     const searchTerm = document.getElementById('search').value.toLowerCase();
     searchEntries(searchTerm);
 }
 
-function searchEntries(searchTerm) {
+export function searchEntries(searchTerm) {
     const currentPage = parseInt(localStorage.getItem('currentPage')) || 1;
     const limit = 10;
 
@@ -28,11 +30,12 @@ function searchEntries(searchTerm) {
         clearTable(); // Tabelle leeren, bevor neue Einträge hinzugefügt werden
         if (Array.isArray(data.entries)) {
             data.entries.forEach(addRowToTable);
+            updatePagination(data.totalPages, data.currentPage);
         }
-        updatePagination(data.totalPages, data.currentPage);
     })
     .catch(error => {
         console.error(error.message);
+        showPopup(error.message, 'error');
     });
 }
 
@@ -65,4 +68,23 @@ function addRowToTable(entry) {
         </td>
     `;
     tableBody.appendChild(row);
+
+    // Event-Listener für die Schaltflächen hinzufügen
+    const deleteButton = row.querySelector('.button-delete');
+    const banButton = row.querySelector('.button-ban');
+    const unbanButton = row.querySelector('.button-unban');
+    const editButton = row.querySelector('.button-edit');
+
+    if (deleteButton) {
+        deleteButton.addEventListener('click', handleDelete);
+    }
+    if (banButton) {
+        banButton.addEventListener('click', handleBan);
+    }
+    if (unbanButton) {
+        unbanButton.addEventListener('click', handleUnban);
+    }
+    if (editButton) {
+        editButton.addEventListener('click', handleEdit);
+    }
 }

@@ -167,7 +167,11 @@ class WhitelistModel {
 
     async search(searchTerm, page, limit) {
         const offset = (page - 1) * limit;
-        const sql = `SELECT * FROM whitelist WHERE username LIKE ? LIMIT ? OFFSET ?`;
+        const sql = `
+            SELECT * FROM whitelist 
+            WHERE username LIKE ? 
+            LIMIT ? OFFSET ?
+        `;
         return new Promise((resolve, reject) => {
             this.database.all(sql, [`%${searchTerm}%`, limit, offset], (err, rows) => {
                 if (err) {
