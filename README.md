@@ -1,5 +1,7 @@
 # Project Zomboid Whitelist Manager
 
+Dir ist ein Fehler aufgefallen? Dann schreib mir eine Mail an: bug@software.xentran.de
+
 ## Übersicht
 Project Zomboid Whitelist Manager ist eine Webanwendung, die zur Verwaltung der Whitelist-Einträge in der `Datenbank.db` SQLite-Datenbank des Spiels Project Zomboid entwickelt wurde. Diese Anwendung ermöglicht es Benutzern, Einträge in der Whitelist anzuzeigen, hinzuzufügen, zu aktualisieren und zu löschen und bietet eine benutzerfreundliche Oberfläche mit ansprechenden Designelementen.
 
