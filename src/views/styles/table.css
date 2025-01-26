@@ -1,0 +1,72 @@
+/* Tabellen-Stile */
+.table-container {
+    flex: 1;
+    overflow-y: visible; /* Scrollbar entfernen */
+    max-height: none; /* Maximale Höhe entfernen */
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    border: 1px solid #ddd;
+    padding: 5px; /* Padding verringern */
+    text-align: left;
+    vertical-align: middle;
+}
+
+.table th {
+    background-color: #5b5c5e;
+    color: white;
+}
+
+body.dark-mode .table th {
+    background-color: #333;
+}
+
+body.dark-mode .table td {
+    border: 1px solid #555;
+}
+
+/* Stile für die Aktionsbuttons */
+.action-buttons {
+    display: flex;
+    justify-content: center; /* Zentrieren der Buttons */
+    gap: 10px;
+}
+
+/* Status-Indikator-Stile */
+.status-indicator-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.status-indicator {
+    font-size: 1.5em;
+}
+
+.status-indicator.green {
+    color: #4CAF50;
+}
+
+.status-indicator.red {
+    color: #f44336;
+}
+
+/* Stile für das Hervorheben der bearbeiteten Zeile */
+.table .editing-row {
+    background-color: #f0f8ff; /* Helles Blau für die bearbeitete Zeile */
+}
+
+body.dark-mode .table .editing-row {
+    background-color: #2a2a2a; /* Dunkleres Grau für die bearbeitete Zeile im Darkmode */
+}
+
+.table .faded-row {
+    opacity: 0.5; /* Reduzierte Deckkraft für ausgefaderte Zeilen */
+}

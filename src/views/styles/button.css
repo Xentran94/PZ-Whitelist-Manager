@@ -1,0 +1,70 @@
+/* Button-Stile */
+.btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 0px;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+.logout-btn {
+    background-color: #f44336;
+    margin-left: 10px;
+}
+
+.logout-btn:hover {
+    background-color: #e53935;
+}
+
+.button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
+
+.button-ban {
+    background-color: #6c757d; /* Grau für den "Sperren"-Button */
+    color: white;
+}
+
+.button-ban:hover {
+    background-color: #5a6268; /* Etwas dunkleres Grau beim Hover */
+}
+
+.button-unban {
+    background-color: #4CAF50;
+}
+
+.button-unban:hover {
+    background-color: #45a049;
+}
+
+.button-delete {
+    background-color: #f44336;
+}
+
+.button-delete:hover {
+    background-color: #e53935;
+}
+
+.button-edit {
+    background-color: #FFA500;
+}
+
+.button-edit:hover {
+    background-color: #FF8C00;
+}

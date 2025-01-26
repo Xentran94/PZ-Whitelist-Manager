@@ -1,0 +1,16 @@
+/* Login-Container-Stile */
+.login-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+    margin-top: 15px; /* 15 Pixel weiter nach unten verschieben */
+    position: relative; /* Position relativ für den Darkmode-Button */
+}
+
+body.dark-mode .login-container {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}

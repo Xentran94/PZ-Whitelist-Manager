@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Zomboid Whitelist Manager</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/form.css">
+    <link rel="stylesheet" href="styles/table.css">
+    <link rel="stylesheet" href="styles/button.css">
+    <link rel="stylesheet" href="styles/popup.css">
+    <link rel="stylesheet" href="styles/darkmode.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Darkmode direkt beim Laden der Seite anwenden
+            if (localStorage.getItem('darkMode') !== 'disabled') {
+                document.documentElement.classList.add('dark-mode');
+                document.body.classList.add('dark-mode');
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="main-wrapper">
+        <div class="login-container" id="loginContainer">
+            <button id="darkModeToggleLogin" class="dark-mode-toggle">🌙</button>
+            <form id="loginForm" class="form">
+                <div class="form-group">
+                    <label for="username">Benutzername</label>
+                    <input type="text" id="loginUsername" class="input" placeholder="Benutzername" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Passwort</label>
+                    <input type="password" id="loginPassword" class="input" placeholder="Passwort" required>
+                </div>
+                <button type="submit" class="btn">Anmelden</button>
+            </form>
+        </div>
+
+        <div class="container" id="mainContainer" style="display: none;">
+            <div class="header">
+                <h1>Project Zomboid Whitelist Manager</h1>
+                <button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
+            </div>
+
+            <form id="whitelistForm" class="form">
+                <div class="form-group">
+                    <label for="username">Benutzer hinzufügen</label>
+                    <input type="text" id="username" class="input username-input" placeholder="Benutzername" required>
+                </div>
+                <div class="form-group checkbox-group">
+                    <label>
+                        <input type="checkbox" id="admin"> Admin
+                    </label>
+                    <label>
+                        <input type="checkbox" id="moderator"> Moderator
+                    </label>
+                    <label>
+                        <input type="checkbox" id="priority"> Priority
+                    </label>
+                </div>
+                <!-- Container für Suchfeld, Hinzufügen-Button und Logout-Button -->
+                <div class="action-bar">
+                    <div class="search-container">
+                        <input type="text" id="search" class="input search-input" placeholder="Suche nach Benutzername">
+                    </div>
+                    <div class="button-container">
+                        <button type="submit" class="btn add-btn">Hinzufügen</button>
+                    </div>
+                    <div class="logout-container">
+                        <button type="button" id="logoutButton" class="btn logout-btn">Logout</button>
+                    </div>
+                </div>
+            </form>
+            <div id="error-message" class="error-message"></div>
+
+            <div class="table-container">
+                <table id="whitelistTable" class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Benutzername</th>
+                            <th>Admin</th>
+                            <th>Moderator</th>
+                            <th>Priority</th>
+                            <th>SteamID</th>
+                            <th>Account-Status</th>
+                            <th>Aktionen</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dynamically populated rows will go here -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="pagination-container">
+                <div class="pagination">
+                    <button id="prevPage" class="btn">Zurück</button>
+                    <span id="pageInfo"></span>
+                    <button id="nextPage" class="btn">Weiter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container for error messages -->
+    <div class="error-popup-container" id="errorPopupContainer"></div>
+
+    <!-- Copyright Panel -->
+    <div class="footer">
+        <p>&copy; 2025 Xentran. Alle Rechte vorbehalten.</p>
+    </div>
+
+    <!-- Laden Sie die main.js Datei als Modul -->
+    <script type="module" src="scripts/main.js"></script>
+</body>
+</html>

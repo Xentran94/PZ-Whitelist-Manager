@@ -1,0 +1,12 @@
+{
+  "database": {
+    "path": "C:/whitelist-panel/servertest.db"
+  },
+  "auth": {
+    "username": "admin",
+    "password": "admin"
+  },
+  "server": {
+    "port": 3000
+  }
+}
