@@ -16,7 +16,7 @@ const generateRandomSecret = (length) => {
 };
 
 // Konfiguration laden
-const configPath = path.join(path.dirname(process.execPath), 'config.json');
+const configPath = path.join(__dirname, '../config.json');
 const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
 
 // Versionsnummer laden
@@ -40,7 +40,7 @@ const PORT = config.server.port || 3000;
 const hashedPassword = hashPassword(configPath);
 
 // Absoluten Pfad zur Datenbank auflösen
-const dbPath = path.resolve(path.dirname(process.execPath), config.database.path);
+const dbPath = path.resolve(__dirname, '../', config.database.path);
 
 let db;
 
@@ -56,7 +56,7 @@ const displayStartup = () => {
  |  ___/ / /     \\ \\/  \\/ / | '_ \\| | __/ _ \\ | / __| __| | |\\/| |/ _\` | '_ \\ / _\` |/ _\` |/ _ \\ '__|
  | |    / /__     \\  /\\  /  | | | | | ||  __/ | \\__ \\ |_  | |  | | (_| | | | | (_| | (_| |  __/ |   
  |_|   /_____|     \\/  \\/   |_| |_|_|\\__\\___|_|_|___/\\__| |_|  |_|\\__,_|_| |_|\\__,_|\\__, |\\___|_|   
-                                                                                     __/ |          
+                                                                                   __/ |          
  © 2025 Xentran.                                                                    |___/            
     `);
     console.log(`Initialisiere Version ${version}...`);
@@ -66,18 +66,19 @@ const displayStartup = () => {
             console.log(`Verbinde mit Datenbank: ${dbPath}`);
             db = new sqlite3.Database(dbPath, (err) => {
                 if (err) {
-                    console.error('Fehler beim Öffnen der Datenbank ' + err.message);
+                    console.error('Fehler beim Verbinden mit der Datenbank:', err);
                 } else {
-                    setTimeout(() => {
-                        console.log('Starte Server...');
-                        setTimeout(() => {
-                            app.listen(PORT, () => {
-                                console.log(`Server läuft unter http://localhost:${PORT}`);
-                            });
-                        }, 1000);
-                    }, 1000);
+                    console.log('Datenbankverbindung erfolgreich');
                 }
             });
+            setTimeout(() => {
+                console.log('Starte Server...');
+                setTimeout(() => {
+                    app.listen(PORT, () => {
+                        console.log(`Server läuft unter http://localhost:${PORT}`);
+                    });
+                }, 1000);
+            }, 1000);
         }, 1000);
     }, 1000);
 };

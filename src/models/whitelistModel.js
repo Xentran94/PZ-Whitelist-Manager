@@ -26,7 +26,15 @@ class WhitelistModel {
                 displayName TEXT
             )
         `;
-        return this.database.run(sql);
+        return new Promise((resolve, reject) => {
+            this.database.run(sql, (err) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve();
+                }
+            });
+        });
     }
 
     async getAllPaginated(page, limit) {

@@ -24,8 +24,8 @@ export function handleLogin(event) {
         localStorage.setItem('token', data.accessToken);
         document.getElementById('loginContainer').style.display = 'none';
         document.getElementById('mainContainer').style.display = 'block';
-        fetchEntries(); // Einträge nach erfolgreichem Login abrufen
-        showPopup('Erfolgreich angemeldet', 'success'); // Erfolgsmeldung anzeigen
+        fetchEntries();
+        showPopup('Erfolgreich angemeldet', 'success');
     })
     .catch(error => {
         showPopup(error.message, 'error');

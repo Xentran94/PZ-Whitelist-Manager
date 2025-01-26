@@ -5,7 +5,7 @@ const path = require('path');
 const hashPassword = (configPath) => {
     const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
     let hashedPassword;
-    if (config.auth.password.startsWith('$2b$')) {
+    if (config.auth.password.startsWith('$2a$') || config.auth.password.startsWith('$2b$')) {
         hashedPassword = config.auth.password;
     } else {
         hashedPassword = bcrypt.hashSync(config.auth.password, 10);

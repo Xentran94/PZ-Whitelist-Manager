@@ -4,7 +4,7 @@
   },
   "auth": {
     "username": "admin",
-    "password": "admin"
+    "password": "$2b$10$0StQ86TLgBZ7oxEdyqyYzurmil1NaXoMKBzCcjxu2X09.Y.UiHceu"
   },
   "server": {
     "port": 3000
